@@ -52,5 +52,45 @@
         <li>"Grazie mamma per essere la mia roccia, la mia guida e il mio amore eterno."</li>
         <li>"Le madri forti non nascono, si forgiano attraverso l'amore e il sacrificio."</li>
     </ul>
+
+    <!-- heart animation background -->
+    <style>
+    .heart {
+      position: fixed;
+      bottom: -50px;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(255,0,0,0.7);
+      transform: rotate(45deg);
+      animation: rise 4s linear infinite;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    .heart:before, .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(255,0,0,0.7);
+      border-radius: 50%;
+    }
+    .heart:before { top: -10px; left: 0; }
+    .heart:after { left: 10px; top: 0; }
+    @keyframes rise {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+    }
+    </style>
+    <script>
+    function createHeart() {
+      var heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 2 + Math.random() * 3 + 's';
+      document.body.appendChild(heart);
+      setTimeout(function() { heart.remove(); }, 5000);
+    }
+    setInterval(createHeart, 500);
+    </script>
 </body>
 </html>
