@@ -92,5 +92,15 @@
     }
     setInterval(createHeart, 500);
     </script>
+
+    <!-- bird chirping background sound -->
+    <audio id="birdSounds" autoplay loop>
+      <source src="https://sounds.zapsplat.com/wp-content/uploads/2021/09/23160_morning-birds-chirping-moderately-animated-birdsong-outdoor-natural-soundscape_by-mike-koenig.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+      // Set volume to low
+      var audio = document.getElementById('birdSounds');
+      audio.volume = 0.2; // 20% volume
+    </script>
 </body>
 </html>
